@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BiodivTrack'</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+
+  <style>
+    /* Styles pour les divisions dépliables informatives (présentation, explications, sources) */
+    .divDepliable,
+    .divDepliable1,
+    .divDepliable2 {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour masquer la division au début */
+    .contenu,
+    .contenu1,
+    .contenu2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="img/Biodivtrack_logofond.png" alt="Biodivtrack_logo"></a>
+    <h1>BiodivTrack'</h1>
+    <div class="fleurs-container">
+      <img src = "img/fleurs3.png" alt="fleurs">
+    </div>
+</header>
+
+<!-- Afficher la barre avec les différentes pages -->
+
+<nav class="banniere">
+  <ul>
+    <li><a href="apropos.html">À propos de nous</a></li>
+    <li><a href="sources.html">Sources</a></li>
+    <li><a href="index.html">Carte</a></li>
+    <li class="active"><a href="explications.html">Explication</a></li>
+    <li><a href="presentation.html">Présentation</a></li>
+  </ul>
+</nav>
+
+<div class="total">
+
+  <p>Voici un tutoriel pour expliquer comment fonctionne BiodivTrack' : 
+    <div>
+      <h4>Page d'accueil : </h4>  
+  <p class="texte-sous-image">Ci-dessous la page d'accueil, avec : 
+  </p>
+  <ul class="ul">
+    
+    <li class="liste">
+      Les cartes de chaleur (4 à différents niveaux de zoom)
+    </li>
+    <li class="liste">
+      Les onglets de la bannière : la présentation du projet, l'explication du site web, la carte, les sources et des informations nous concernant 
+    </li>
+    <li class="liste">
+      La zone de filtre des villes et des espèces
+    </li>
+    <li class="liste">
+      Le gestionnaire de couches : choix de plusieurs fonds de carte
+    </li> 
+  </ul>
+  
+  <img class="carte-de-chaleur "src="img/Carte_de_chaleur.jpg" alt="Description de votre nouvelle image">
+</div>
+
+<style>
+    .carte-de-chaleur {
+      width: 80%; /* La largeur de l'image sera de 80% de la largeur du conteneur parent */
+      max-width: 800px; /* Limite la largeur maximale de l'image à 800 pixels */
+      height: auto; /* La hauteur s'ajustera automatiquement en fonction de la largeur */
+      margin-top: 50px; /* Marge supérieure fixe de 50 pixels */
+      margin-bottom: 20px; /* Marge inférieure fixe de 20 pixels */
+      margin-left: calc(50% - 40%); /* Calcule la marge gauche pour centrer l'image horizontalement */
+      margin-right: auto; /* La marge à droite est automatiquement ajustée pour centrer horizontalement l'élément */
+      display: block; /* Pour garantir que l'image est affichée en tant que bloc */
+    }
+    .ul{
+      margin-left: 40px ;
+      font-size: 17px;
+      max-width: 800px;
+      text-align: justify;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .liste li{
+      margin-left: 40px ;
+      font-size: 17px;
+      max-width: 800px;
+      text-align: justify;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    </style>
+  
+  <div>
+    <p class="texte-sous-image"> 
+      En bas de l'interface, vous retrouverez quatre onglets cliquables permettant de visualiser des graphiques ou des statistiques de la sélection active (des points de Plantnet).
+      <br>Lors de l'arrivée sur le site, ces statistiques sont à échelle mondiale. Si nous zoomons sur une ville (ou une espèce ou une ville + une espèce) : les graphiques et statistiques s'actualisent automatiquement sur votre sélection. 
+      <br><br>Notes : 
+  <ul class="ul">
+    <li class="liste">
+      L'onglet des indicateurs est uniquement pour la sélection d'une ville.
+  </li>
+  <li class="liste">
+    L'onglet des espèces d'agréments fonctionnent uniquement pour la sélection d'une ville ou d'une ville ET d'une espèce. En effet, lors de la sélection d'une espèce, le graphique est faux car nous n'avons les informations des parcs à échelle mondiale (seulement pour les 300 villes d'étude de GloUrb)  </li>
+  </ul>     
+</p>
+<img class="carte-de-chaleur-2 "src="img/Carte_de_chaleur_2.jpg" alt="Description de votre nouvelle image">
+</div>
+
+<style>
+  .carte-de-chaleur-2 {
+    width: 80%; /* La largeur de l'image sera de 80% de la largeur du conteneur parent */
+    max-width: 800px; /* Limite la largeur maximale de l'image à 800 pixels */
+    height: auto; /* La hauteur s'ajustera automatiquement en fonction de la largeur */
+    margin-top: 20px; /* Marge supérieure de 20 pixels pour séparer les deux images */
+    margin-left: calc(50% - 40%); /* Calcule la marge gauche pour centrer l'image horizontalement */
+    margin-right: auto; /* La marge à droite est automatiquement ajustée pour centrer horizontalement l'élément */
+    display: block; /* Pour garantir que l'image est affichée en tant que bloc */
+  }
+  </style>
+
+<div>
+  <h4><br>Entrée de sélection par ville</h4>
+  <p class="texte-sous-image"> Pour sélectionner une ville, vous pouvez utiliser le menu déroulant ou taper le nom de la ville souhaitée.</p>
+  <img class="selection_ville "src="img/selection_ville.jpg" alt="Description de votre nouvelle image">
+</div>
+
+<style>
+  .selection_ville {
+        width: 50%; /* Réduire la largeur de l'image à 50% de la largeur du conteneur parent */
+        max-width: 300px; /* Limiter la largeur maximale de l'image à 400 pixels */
+        height: auto; /* La hauteur s'ajustera automatiquement en fonction de la largeur */
+        margin-top: 20px; /* Marge supérieure de 20 pixels pour séparer l'image précédente */
+        margin-left: calc(50% - 40%); /* Calcule la marge gauche pour centrer l'image horizontalement */
+        margin-right: auto; /* La marge à droite est automatiquement ajustée pour centrer horizontalement l'élément */
+        display: block; /* Pour garantir que l'image est affichée en tant que bloc */
+      }
+    </style>
+    
+    <div>
+      <p class="texte-sous-image"> Ici, Bogotá est sélectionnée à titre d'exemple. Un zoom automatique se fait à l'échelle de la ville en n'affichant que les points d'occurence au sein de cette dernière.</p>
+      <img class="bogota "src="img/Bogota.jpg" alt="Description de votre nouvelle image">
+      </div>
+
+      <style>
+        .bogota {
+          width: 80%;
+          max-width: 800px;
+          height: auto;
+          margin-top: 20px;
+          margin-left: calc(50% - 40%);
+          margin-right: auto;
+          display: block;
+        }
+      </style>
+      
+      <div>
+        <p class="texte-sous-image"> Lorsque vous cliquez sur les onglets, le graphique correspondant apparait et le style des points s'actualise sur la carte avec les mêmes couleurs que le graphique. Ainsi, la légende du graphique correspond aussi à celle des points.
+          <br><br> Les différents onglets visibles sont :
+          <ul class="ul">
+      <li>
+La distance au fleuve : cet onglet permet de déceler les espèces les plus proches des cours d'eau.      </li>
+      <li>
+        Le statut : l'Union internationale pour la conservation de la nature a classé les espèces en différentes
+        catégories en fonction de leur niveau de menace et de vulnérabilité. Ainsi, vous pouvez savoir à quel sstatut 
+        appartiennent chacune des occurences.      </li>
+        <li>
+          Les plantes d'agréments et envahissantes : la présence dans les parcs défini le statut de plante d'agrément.
+          Elle est croisée avec la liste des plantes classées comme envahissantes.      </li>
+          <li>
+            Les indicateurs : cette boite recense le nombre d'espèces dans la ville choisie, l'espèce la plus représentée et le nombre d'espèces avec uniquement une occurence.      </li> 
+          </ul>
+        </p>
+        <img class="bogota_onglet "src="img/bogota_onglet.jpg" alt="Description de votre nouvelle image">
+      </div>
+    
+      <style>
+          .bogota_onglet {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            margin-top: 20px;
+            margin-left: calc(50% - 40%);
+            margin-right: auto;
+            display: block;
+          }
+          </style>
+
+<div>
+  <p class="texte-sous-image">Lors d'un clic sur un point, un pop-up avec différentes informations s'affiche.
+  </p>
+  <img class="popup_ville"src="img/popup.jpg" alt="Description de votre nouvelle image">
+</div>
+
+<style>
+  .popup_ville {
+    width: 80%;
+    max-width: 200px;
+      height: auto;
+      margin-top: 20px;
+      margin-left: calc(50% - 40%);
+      margin-right: auto;
+      display: block;
+    }
+    </style>
+
+<div>
+  <h4>Entrée de sélection ville + espèce</h4>
+  <p class="texte-sous-image"> Ici, est sélectionnée une espèce présente à Bogotá. Comme mentionné précedemment 
+    les graphiques s'actualisent en fonction des points sélectionnés. 
+    
+  </p>
+  <img class="villes_especes "src="img/Ville_especes.jpg" alt="Description de votre nouvelle image">
+</div>
+
+<div>
+  <p class="texte-sous-image"> Si l'espèce choisie n'est pas présente dans la ville retenue, un message d'alerte apparaît.
+  </p>
+  <img class="alerte "src="img/alerte.jpg" alt="Description de votre nouvelle image">
+</div>
+
+  
+<style>
+  .alerte {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: calc(50% - 40%);
+    margin-right: auto;
+    display: block;
+  }
+</style>
+<style>
+  .villes_especes {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: calc(50% - 40%);
+    margin-right: auto;
+    display: block;
+  }
+</style>
+  
+<div>
+  <h4>Entrée de sélection par espèce</h4>
+  <p class="texte-sous-image"> Pour sélectionner une espèce, vous pouvez utiliser le menu déroulant ou taper le nom de l'espèce</p>
+  <img class="Selection_especes "src="img/Selection_especes.jpg" alt="Description de votre nouvelle image">
+  </div>
+  
+  <style>
+    p{
+      margin-top: 40px;
+      margin-left: 40px;
+      margin-right: 50px;
+      font-size: 17px;
+      text-align: justify;      
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 1100px;
+    }
+    .Selection_especes {
+      width: 50%; /* Réduire la largeur de l'image à 70% de la largeur du conteneur parent */
+      max-width: 250px; /* Limiter la largeur maximale de l'image à 700 pixels */
+      height: auto; /* La hauteur s'ajustera automatiquement en fonction de la largeur */
+      margin-top: 20px; /* Marge supérieure de 20 pixels pour séparer l'image précédente */
+      margin-left: calc(50% - 40%); /* Calcule la marge gauche pour aligner l'image horizontalement avec les autres */
+      margin-right: auto; /* La marge à droite est automatiquement ajustée pour centrer horizontalement l'élément */
+      display: block; /* Pour garantir que l'image est affichée en tant que bloc */
+    }
+    </style>
+
+<div>
+  <p class="texte-sous-image">Voici ici l'entrée espèce avec la sélection d'une espèce de prunier. 
+    <br>
+    <br>Les graphiques et styles s'actualisent à nouveau.
+  </p>
+  <img class="entre_especes "src="img/entre_especes.jpg" alt="Description de votre nouvelle image">
+  <p><br><br></p>
+</div>
+<style>
+  .entre_especes {
+    width: 80%; /* Réduire la largeur de l'image à 80% de la largeur du conteneur parent */
+    max-width: 800px; /* Limiter la largeur maximale de l'image à 800 pixels */
+    height: auto; /* La hauteur s'ajustera automatiquement en fonction de la largeur */
+      margin-top: 20px; /* Marge supérieure de 20 pixels pour séparer l'image précédente */
+      margin-left: calc(50% - 40%); /* Calcule la marge gauche pour aligner l'image horizontalement avec les autres */
+      margin-right: auto; /* La marge à droite est automatiquement ajustée pour centrer horizontalement l'élément */
+      display: block; /* Pour garantir que l'image est affichée en tant que bloc */
+    }
+  </style>
+</div>
+<style>
+  .total {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: calc(50% - 35%);
+    margin-right: auto;
+    display: block;
+  }
+</style>
+  
+
+ <script src="js/second.js"></script>
+
+</body>
+
+</html>

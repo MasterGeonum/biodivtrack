@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BiodivTrack'</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+
+  <style>
+    /* Styles pour les divisions dépliables informatives (présentation, explications, sources) */
+    .divDepliable,
+    .divDepliable1,
+    .divDepliable2 {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour masquer la division au début */
+    .contenu,
+    .contenu1,
+    .contenu2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="img/Biodivtrack_logofond.png" alt="Biodivtrack_logo"></a>
+    <h1>BiodivTrack'</h1>
+    <div class="fleurs-container">
+      <img src = "img/fleurs3.png" alt="fleurs">
+    </div>
+  </header>
+<!-- Afficher la barre avec les différentes pages -->
+
+<nav class="banniere">
+  <ul>
+    <li class="active"><a href="apropos.html">À propos de nous</a></li>
+    <li><a href="sources.html">Sources</a></li>
+    <li><a href="index.html">Carte</a></li>
+    <li><a href="explications.html">Explication</a></li>
+    <li><a href="presentation.html">Présentation</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="textnous">
+    <br>
+    <br>
+<p>Le programme de master "Géographies Numériques" fait partie intégrante du nouvel horizon des sciences géographiques axées sur les données numériques. Ancré dans le domaine de la géomatique, il forme des spécialistes des méthodes et des usages de gestion et de représentation de l’information géographique capables d’animer les projets numériques des villes et des territoires. Ce master est organisé conjointement par l’Université Lumière Lyon 2 et l’Université Jean Monnet de Saint-Étienne en partenariat avec l’Université Jean Moulin Lyon 3.</p>
+
+<p>Dans le cadre de ce master, nous devons réaliser le projet géonumérique dont l’objectif est de concevoir et développer une solution comprenant une application cartographique sur le web. Pour ce projet, nous collaborons avec le master Sentinelles de l’université Lyon 3. Notre projet est commandité par Lise VAUDOR et Barbara BELLETI du laboratoire EVS et porte sur le thème de la biodiversité et des plaines alluviales.</p>
+
+<p>Lise VAUDOR est ingénieure de recherche et travaille dans des domaines tels que les statistiques, la modélisation et l'analyse de données. Barbara BELLETI est chercheuse et travaille sur les hydrosystèmes. Pour ce projet, elles sont les commanditaires et ont besoin d’exploiter les données botaniques (participatives) disponibles à l’échelle mondiale fournies par PlantNet.</p>
+
+<p>Quant à nous, nous sommes des étudiants du master 2 GéoNum et nous avons pour rôle d’analyser les besoins, de définir le cahier des charges et de développer l’application cartographique permettant d'explorer et d'analyser les données botaniques à l'échelle mondiale.</p>
+
+<p>Jade LAUFRAIS, Marceau L’HOSPITAL, Juliette SEASSAL MARTINET, Pauline VIGUIER</p>
+  </div>
+<div class="geonum">
+  <a href="https://mastergeonum.org/"><img src="img/logo_geonum.png" alt="G"></a>
+</div>
+<div class="Lyon_2">
+  <a href="https://www.univ-lyon2.fr/"><img src="img/Lyon_2.png" alt="Description de votre deuxième image"></a>
+</div>
+<div class="evs">
+  <a href="https://umr5600.cnrs.fr/fr/accueil/?doing_wp_cron=1708591168.6159920692443847656250"><img src="img/evs.png" alt="Description de votre deuxième image"></a>
+</div>
+</div>
+
+
+
+<div id="modal" class="modal">
+  <div class="messageinfo">
+    <span id="close" class="close">&times;</span>
+    <p>Biodiv’Track est une plateforme novatrice qui exploite les données 
+      collaboratives de Plantnet afin de spatialiser à l'échelle mondiale la répartition des plantes. 
+      Dans un contexte où la biodiversité connaît un déclin préoccupant, il est crucial de prendre 
+      des mesures pour sa préservation.
+    </p>
+  </div>
+</div>
+ <script src="js/second.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgis/postgis:13-3.2-alpine
+    restart: always
+    environment:
+      TZ: Europe/Paris
+      POSTGRES_DB: biodiv
+      POSTGRES_USER: marceau_dba_pg15
+      POSTGRES_PASSWORD: Reformed_Promptly4_Rendition_Wreath
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    restart: always
+    environment:
+      - PGSERVICEFILE=/app/pg_service.conf
+    ports:
+      - "5000:5000"
+  
+volumes:
+  db-data:

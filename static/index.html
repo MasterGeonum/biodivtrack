@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BiodivTrack'</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="img/Biodivtrack_logofond.png" alt="Biodivtrack_logo"></a>
+      <h1>Biodiv' Track</h1>
+      <div class="fleurs-container">
+        <img src="img/fleurs3.png" alt="fleurs">
+      </div>
+    </div>
+  </header>
+  
+  <nav class="banniere">
+    <ul>
+      <li><a href="apropos.html">À propos de nous</a></li>
+      <li><a href="sources.html">Sources</a></li>
+      <li class="active"><a href="index.html">Carte</a></li>
+      <li><a href="explications.html">Explication</a></li>
+      <li><a href="presentation.html">Présentation</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Affichage de la carte interactive -->
+  <div id="map"></div>
+
+  <!-- box pour les filtres -->
+  <div>
+    <form id="formulaire">
+ <!-- box pour filtrer les villes -->
+ <div id="ville"> 
+    <select id="searchInput">
+      <option value="">Sélectionnez une ville</option>
+  </select>
+</div>
+
+<!-- box pour filtrer les espèces -->
+<div id="espece">
+  <select id="searchInputSpecies">
+    <option value="">Sélectionnez une espèce</option>
+</select>
+</form>
+</div>
+
+
+  <!-- <div id="popup">
+    <strong>Espèces:</strong> ${feature.properties.species}<br>
+    <strong>Fleuve proche:</strong> ${feature.properties.fleuveproche}<br>
+    <strong>Statut:</strong> ${feature.properties.Statut}
+  </div>
+   -->
+   <div class="box-container">
+    <div class="box fleuve" onclick="toggleBox('fleuve'); toggleCanvas(this);">
+      <div class="title">Distance au fleuve</div>
+      <div class="graph-container" id="graphFleuve" style="display: none;">
+        <!-- Contenu du graphique -->
+      </div>
+      <canvas id="myBarChartDistance" width="320" height="200" style="display:block; box-sizing: border-box; height: 200px; width: 300px; margin-left: -20px; margin-right: -40px;"></canvas>
+    </div>
+    
+    <div class="box statut" onclick="toggleBox('statut')">
+      <div class="title">Statut selon l'IUCN</div>
+      <div class="graph-container" id="graphStatut" style="display: none;">
+        <!-- Contenu du graphique -->
+      </div>
+      <canvas id="myPieChart" class="piestatut" width="310" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 300px;"></canvas>
+    </div>
+  
+    <div class="box agrements" onclick="toggleBox('agrements')">
+      <div class="title">Plantes d'agréments et envahissantes</div>
+      <div class="graph-container" id="graphAgrement" style="display: none;">
+        <!-- Contenu du graphique -->
+      </div>
+      <canvas id="myBarChartAgrement" width="310" height="180" style="display: block; margin-left: -10px;"></canvas>
+    </div>
+  
+    <div class="box indicateurs" onclick="toggleBox('indicateurs'), toogleContenu(this)">
+      <div class="title">Indicateurs</div>
+      <canvas id="indicateursCanvas" width="400" height="120"></canvas>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

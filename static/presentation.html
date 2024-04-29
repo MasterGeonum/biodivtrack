@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BiodivTrack'</title>
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+
+  <style>
+    /* Styles pour les divisions dépliables informatives (présentation, explications, sources) */
+    .divDepliable,
+    .divDepliable1,
+    .divDepliable2 {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour masquer la division au début */
+    .contenu,
+    .contenu1,
+    .contenu2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="img/Biodivtrack_logofond.png" alt="Biodivtrack_logo"></a>
+    <h1>BiodivTrack'</h1>
+    <div class="fleurs-container">
+      <img src = "img/fleurs3.png" alt="fleurs">
+    </div>
+
+  </header>
+
+<!-- Afficher la barre avec les différentes pages -->
+
+
+
+
+<nav class="banniere">
+  <ul>
+    <li class><a href="apropos.html">À propos de nous</a></li>
+    <li class><a href="sources.html">Sources</a></li>
+    <li class><a href="index.html">Carte</a></li>
+    <li class><a href="explications.html">Explication</a></li>
+    <li class="active"><a href="presentation.html">Présentation</a></li>
+  </ul>
+</nav>
+<div class="paragraphe_presentation">
+  <p>
+    Biodiv’Track est une plateforme novatrice qui exploite les données collaboratives de Plantnet afin de
+    spatialiser à l'échelle mondiale la répartition des plantes. Dans un contexte où la biodiversité connaît un
+    déclin préoccupant, il est crucial de prendre des mesures pour sa préservation. <br>  <br>Ce projet s'associe à
+    GloUrb, une initiative traitant de l'urbanisation des plaines alluviales à l'échelle mondiale depuis les
+    années 1980. GloUrb vise à fournir des références globales pour mieux comprendre les processus en jeu et les
+    impacts sur les socio-écosystèmes, contribuant ainsi à une meilleure gestion de la biodiversité et des
+    écosystèmes urbains.</p>
+</div>
+<div class="logo_glourb">
+  <a href="https://glourb.universite-lyon.fr/version-francaise/"><img src="img/GloUrb.png" alt="glourb"></a>
+</div>
+<div class = "flyer">
+  <img src="img/1.png" alt="flyer1">
+  <img src="img/2.png" alt="flyer2">
+</div>
+
+
+<button id="openModal">Open Modal</button>
+
+    <div id="modal" class="modal">
+        <div class="messageinfo">
+          <span id="close" class="close">&times;</span>
+          <p>Biodiv’Track est une plateforme novatrice qui exploite les données 
+            collaboratives de Plantnet afin de spatialiser à l'échelle mondiale la répartition des plantes. 
+            Dans un contexte où la biodiversité connaît un déclin préoccupant, il est crucial de prendre 
+            des mesures pour sa préservation.
+          </p>
+        </div>
+    </div>
+
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="js/second.js"></script>
+</body>
+
+</html>

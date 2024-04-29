@@ -1,0 +1,92 @@
+
+body, html{
+  margin : 0;
+  padding: 0;
+  border-style: none;
+}
+
+header {
+  background-color: rosybrown;
+  height: 70px;
+  border: 0;
+}
+
+h1{
+  top : 0px;
+}
+
+
+/* responsive web page */
+/* ajouter les div complexes dans les accolades */
+@media screen and (max-width: 1500px) {
+  .divDepliable,
+  .divDepliable1,
+  .divDepliable2,
+  .contenu,
+  .contenu1,
+  .contenu2 {
+    width: auto;
+  }
+  .app-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 50vh; */
+  /* gap: 0; /* Utilisation de vw pour l'espacement entre les colonnes */
+  /* padding: 1vh;
+  margin: 0;  */
+}
+
+
+.box {
+  /* width : 100%; */
+  height : 54px;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  background-color: #ffffff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  float:right;
+
+  /* display: inline-block; Afficher les éléments en ligne */
+  /* margin: 0 70px;  */
+}
+
+nav ul li a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+ nav ul li a:hover {
+  background-color:rosybrown;
+} 
+
+.content {
+  padding: 20px;
+}

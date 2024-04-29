@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BiodivTrack'</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+
+  <style>
+    /* Styles pour les divisions dépliables informatives (présentation, explications, sources) */
+    .divDepliable,
+    .divDepliable1,
+    .divDepliable2 {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour masquer la division au début */
+    .contenu,
+    .contenu1,
+    .contenu2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="img/Biodivtrack_logofond.png" alt="Biodivtrack_logo"></a>
+    <h1>BiodivTrack'</h1>
+    <div class="fleurs-container">
+      <img src = "img/fleurs3.png" alt="fleurs">
+    </div>
+  </header>
+
+<!-- Afficher la barre avec les différentes pages -->
+
+<nav class="banniere">
+  <ul>
+    <li><a href="apropos.html">À propos de nous</a></li>
+    <li class="active"><a href="sources.html">Sources</a></li>
+    <li><a href="index.html">Carte</a></li>
+    <li><a href="explications.html">Explication</a></li>
+    <li><a href="presentation.html">Présentation</a></li>
+  </ul>
+</nav>
+
+<div class = "sources">
+  <p class="sourcestexte">
+    <!-- plantnet -->
+  <h3>PlantNet</h3>
+  <br>
+  PlantNet est une application de reconnaissance de plantes qui permet aux utilisateurs d'identifier 
+  facilement les espèces végétales en prenant simplement une photo. Sa base de données étendue et sa 
+  technologie avancée de reconnaissance d'image rendent l'identification rapide et précise. Nous avons 
+  récupérer tous les points de la base de donnée alimentée par la communauté afin d'y effectuer des analyses.
+  <br>
+  <br>
+  Notons que la base de donnée ne s'approche pas de la réalité du terrain, en effet les données sont plus
+  fournies aux endroits de plus forte utilisation du smartphone.
+  <br>
+  <br>
+  <a href="https://plantnet.org/open-data/">© Plantnet</a>
+  <br>
+  <br>
+  <br>
+
+  <!-- osm -->
+  <h3>OpenStreetMap</h3>
+  <br>
+    OpenStreetMap (OSM) est une carte mondiale collaborative, libre et ouverte. 
+    Des contributeurs du monde entier ajoutent et mettent à jour des données géographiques, 
+    permettant à quiconque d'accéder gratuitement à des cartes précises et détaillées. Utilisée 
+    par de nombreux services et applications, OSM offre une alternative dynamique et communautaire 
+    aux cartes propriétaires traditionnelles.
+    <br>
+    Nous avons utilisé les données des parcs urbain de OpenStreetMap.
+    <br>
+    <br>
+    <a href="https://www.openstreetmap.org/#map=6/46.449/2.210">© OSM</a>  
+  
+
+
+
+    <!-- naturalearth -->
+  <h3>NaturalEarthData</h3>
+  <br>
+  Natural Earth Data offre des données géographiques gratuites de haute qualité, couvrant 
+  divers aspects tels que la topographie, la géographie et la culture à l'échelle mondiale. 
+  Ces données sont largement utilisées pour des projets cartographiques, de visualisation 
+  de données et d'analyses géospatiales en raison de leur accessibilité et de leur précision.
+  Natural Earth Data offre des données géographiques gratuites de haute qualité, couvrant divers 
+  aspects tels que la topographie, la géographie et la culture à l'échelle mondiale. Ces données 
+  sont largement utilisées pour des projets cartographiques, de visualisation de données et 
+  d'analyses géospatiales en raison de leur accessibilité et de leur précision.
+    <br>
+    <br>
+Nous avous téléchargé les données des contours de pays mais également des cours d'eau 
+dans le monde (faible niveau de détail).
+    <br>
+    <br>
+    <a href="https://www.naturalearthdata.com/downloads/">© Natural Earth Data</a>  
+  
+
+
+    <!-- Gaia -->
+  <h3>    
+    Global River Database - University of North Carolina at Chapel Hill</h3>
+  <br>
+  La Global River Database de l'Université de Caroline du Nord à Chapel Hill fournit des données détaillées 
+  sur les rivières à travers le monde. Cette base de données offre des informations précieuses sur les 
+  caractéristiques hydrologiques, la connectivité et la morphologie des cours d'eau mondiaux. Les données 
+  de cette base sont utilisées pour des études hydrologiques, des recherches sur l'environnement, la gestion 
+  des ressources en eau et d'autres projets liés à la géographie et à l'hydrologie.  
+  <br>
+  <br>
+
+Nous avons utilisé les données des cours d'eau détaillées pour chacune des villes.    <br>
+    <br>
+    
+    <a href="http://gaia.geosci.unc.edu/rivers/">© Gaia</a>  
+    
+    
+    <!-- wikidata -->
+    <h3>WikiData</h3>
+  <br>
+  Wikidata est une base de données collaborative contenant des informations structurées sur une multitude 
+  de sujets. Géré par la Wikimedia Foundation, il fournit une source libre et ouverte de données pour alimenter 
+  divers projets, y compris Wikipedia. Avec des millions d'entités répertoriées, Wikidata est utilisé pour la 
+  recherche, l'analyse de données et bien d'autres applications à travers le monde.    
+  <br>
+  <br>
+Nous avons utilisé WikiData pour récupérer les photographies des différentes plantes.    
+    <br>
+    <br>
+    <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">© Wikidata</a>  
+  
+  
+<!-- especes exotiques -->
+  <h3>Espèces exotiques envahissantes</h3>
+  <br>
+  Le site "Espèces Exotiques Envahissantes" offre une base d'informations sur les espèces végétales et animales 
+  qui menacent les écosystèmes. Il fournit des détails sur leur répartition, leur impact environnemental et les 
+  mesures de gestion. Ces données sont essentielles pour la recherche, la gestion environnementale et la 
+  sensibilisation du public.    
+  <br>
+  <br>
+Nous avons utilisé la liste des espèces envahissantes afin de définir pour chacun de nos points Plantnet si ce sont
+des espèces envahissantes.
+    <br>
+    <br>
+    <a href="http://especes-exotiques-envahissantes.fr/base-dinformation-page-daccueil/">© Espèces Exotiques Envahissantes</a>  
+  
+  </p>
+
+
+<div class="plantnet">
+<a href="https://plantnet.org/"><img src="img/plantnet.jpg" alt="plantnet"></a>
+</div>
+
+
+<div class="osm">
+  <a href="https://www.openstreetmap.org"><img src="img/osm.png" alt="osm"></a>
+</div>
+
+<div class="naturalearth">
+  <a href="https://www.naturalearthdata.com/"><img src="img/naturalearth.png" alt="naturalearth"></a>
+</div>
+
+<div class="gaia">
+  <a href="https://www.unc.edu/"><img src="img/gaia.png" alt="gaia"></a>
+</div>
+
+<div class="wikidata">
+  <a href="https://www.wikidata.org"><img src="img/wikidata.jpg" alt="naturalearth"></a>
+</div>
+
+<div class="ofb">
+  <a href="https://especes-exotiques-envahissantes.fr/"><img src="img/ofb.jpg" alt="ofb"></a>
+</div>
+
+</div>
+
+<div id="modal" class="modal">
+  <div class="messageinfo">
+    <span id="close" class="close">&times;</span>
+    <p>Biodiv’Track est une plateforme novatrice qui exploite les données 
+      collaboratives de Plantnet afin de spatialiser à l'échelle mondiale la répartition des plantes. 
+      Dans un contexte où la biodiversité connaît un déclin préoccupant, il est crucial de prendre 
+      des mesures pour sa préservation.
+    </p>
+  </div>
+</div>
+
+ <script src="js/second.js"></script>
+</body>
+
+</html>

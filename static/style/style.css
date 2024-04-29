@@ -1,0 +1,781 @@
+body, html{
+  margin : 0;
+  padding: 0;
+  border-style: none;
+  background-color: #F1F0F0 ;
+  width: 100%;
+  height: 800px;
+}
+
+
+
+header {
+  background-color:#F1F0F0;
+  height: 70px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+
+/* header */
+.logo-container {
+  display: flex; 
+  align-items: bottom; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  
+}
+
+.logo-container img {
+  /* margin-right: 0px; Ajouter de l'espace entre le logo et le titre */
+  /* margin-top: 0px; */
+  width: auto;
+  top:100px;
+  height: 141px ;
+  margin-right: 10px; /* Ajouter de l'espace entre le logo et la ligne */
+  border-right: 3px #325B48;
+  padding-right: 10px;
+  z-index: 10;
+}
+
+.fleurs-container {
+  display: flex; /* Utiliser Flexbox pour les éléments à l'intérieur du header */
+  align-items: center; /* Aligner les éléments sur l'axe vertical */
+  position :absolute;
+  top : 0;
+  z-index: 0;
+}
+
+.fleurs-container img {
+  margin-left: 500px; /* Ajouter de l'espace entre le logo et le titre */
+  max-width: 800px;
+  height: auto ;
+}
+
+/* BORDURE GENERALE */
+
+nav{
+  background-color: #527263 ;
+  width: 100%;
+  z-index: 10;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+}
+
+.banniere {
+  background-color: #527263;
+  width: 100%;
+  position: fixed;
+  top: 100px; /* Pour positionner la bannière en haut de la fenêtre */
+  z-index: 5; /* Pour placer la bannière au-dessus des autres éléments */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10000;
+}
+
+nav ul li {
+  display: inline;
+  float:right;
+  background-color:#527263;
+  /* display: inline-block; Afficher les éléments en ligne */
+  /* margin: 0 70px;  */
+  z-index: 1000;
+}
+
+nav ul li a {
+  display: block;
+  color: #F1F0F0;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  z-index: 10000;
+}
+
+nav ul a:hover {
+  background-color: #F1F0F0;
+  color: #000000;
+}
+
+nav ul li.active {
+  background-color: #F1F0F0;
+  color: #000000;
+  border-radius: 5px;
+}
+
+nav ul li.active a {
+  color: #000000; /* Couleur du texte noir */
+}
+
+.content {
+  padding: 20px;
+}
+
+
+
+
+.leaflet-control-layers {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.leaflet-control-layers-expanded {
+  max-width: 80px; /* Définissez la hauteur maximale désirée */
+  overflow-y: auto; /* Ajoutez une barre de défilement vertical si nécessaire */
+}
+
+
+
+/* polices générales */
+
+h1{
+  margin-top: 40px;
+  font-size: 40px;
+  margin-left: 40px;
+  color :#325B48;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p{
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 50px;
+  font-size: 17px;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+h4{
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 17px;
+  font-weight: bold;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+
+
+/* PAGE DE LA CARTE */
+.info {
+  display: flex;
+  justify-content: flex-end; /* Aligner les éléments à l'extrémité droite */
+  height : 40px;
+  right: 10px; /* Ajustez la position par rapport au bord droit */
+  right: 10px; /* Ajustez la position par rapport au bord droit */
+  top: 16px; /* Ajustez la position par rapport au bord haut */
+  position: absolute;
+  z-index:1000;
+}
+
+/* style pour les box dans le header
+.divDepliable,
+.divDepliable1,
+.divDepliable2 {
+  background-color: #f1f1f1;
+  /* padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  top : 0px;
+}
+
+.contenu,
+.contenu1,
+.contenu2 {
+  width: 80px; /* Ajustez la largeur selon vos préférences
+  display: none;
+  /* padding: 5px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  z-index:1000;
+  background-color: white;
+  box-shadow: 0 0 15 px rgba(0,0,0,0.2);
+} */
+
+/* responsive web page */
+/* ajouter les div complexes dans les accolades */
+@media screen and (max-width: 1500px) {
+  .divDepliable,
+  .divDepliable1,
+  .divDepliable2,
+  .contenu,
+  .contenu1,
+  /* .contenu2 {
+    width: auto;
+    
+  } */
+  .app-layout{
+    display: grid;
+    position: absolute;
+    top:638px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+   
+  }
+}
+
+/* #map {
+  width: 100%;
+  height: 500px;
+  z-index:0;
+  position: relative;
+} */
+
+/* Styles de base pour la carte J'ai changer  */
+#map {
+width: 100%;
+height: 84vh; /* Utilisation d'une valeur relative (50% de la hauteur de la fenêtre) */
+z-index: 0;
+position: absolute;
+top: 138px;
+}
+
+/* box de recherche des villes */
+#ville{
+  position: absolute;
+  top : 160px;
+  left: 105px;
+  padding: 6px 8px;
+  background: white;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4); /* ombre légère */
+  border-radius: 5px;
+  z-index : 2;
+  font-size: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+/* box de recherche des espèces */
+#espece{
+  position: absolute;
+  top : 160px;
+  right: 105px;
+  padding: 6px 8px;
+  background: white;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4); /* ombre légère */
+  border-radius: 5px;
+  z-index : 2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+}
+
+#popup {
+  position: absolute;
+  top: 330px;
+  left: 70px;
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 10
+}
+
+
+.app-layout
+{
+
+display:
+grid;
+
+grid-template-columns:
+repeat(4,
+1fr);
+/* Quatre colonnes de largeur égale */
+
+grid-template-rows:
+auto;
+/* Hauteur automatique pour s'adapter au contenu */
+
+border-radius:
+15px;
+
+position:
+absolute;
+
+top:
+638px;
+/* Position à 900px du haut de la page */
+
+left:
+0;
+
+width:
+100%;
+/* Prend toute la largeur disponible */
+}
+
+
+.box{
+height: 300px; /* Hauteur des boîtes */
+color: #fff;
+padding: 1em;
+background-color: #527263;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+box-shadow: 1px 0 1px rgba(0,0,0,0.4); /* ombre légère */
+position: relative;
+/* NOUVEAUUUUUU */
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 14px;
+}
+
+
+.box
+.tab {
+position:absolute;
+top: 20px; /* Position initiale de l'onglet */
+left: 0;
+width: 70%; /* Largeur de l'onglet */
+height: 50px; /* Hauteur de l'onglet */
+display: flex;
+align-items: center;
+padding-left: 10px;
+overflow: hidden;
+cursor: pointer;
+transition: height 0.3s ease; /* Transition de la hauteur */
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+font-size: 15px;
+}
+
+
+.box
+.graph-container {
+  margin-left: 0;
+  margin-right: 0;
+
+display:
+none;
+}
+
+
+.box:hover
+.tab {
+
+width:
+100%;
+/* Agrandir l'onglet au survol */
+}
+
+
+.box:hover
+.content {
+
+display:
+block;
+}
+
+
+/* Assignation des colonnes */
+.box.fleuve
+{
+
+grid-column:
+1 / span
+1;
+/* Boîte "fleuve" occupe la première colonne */
+}
+
+
+.box.statut
+{
+
+grid-column:
+2 / span
+1;
+/* Boîte "statut" occupe la deuxième colonne */
+}
+
+
+.box.agrements
+{
+
+grid-column:
+3 / span
+1;
+/* Boîte "agrements" occupe la troisième colonne */
+}
+
+
+.box.indicateurs
+{
+
+grid-column:
+4 / span
+1;
+/* Boîte "indicateurs" occupe la quatrième colonne */
+}
+
+/* CSS pour les boîtes */
+/* CSS pour les boîtes */
+.box {
+  width: 22.7%; 
+  height: 40px; 
+  transition: all 0.3s ease;
+}
+
+.box.enlarge {
+  height: 200px; /* hauteur des boîtes après agrandissement */
+  width: 310px;
+}
+
+.box {
+  position: absolute;
+  bottom: -110px; /* Ajustez selon votre préférence */
+  width: 308px
+}
+
+.box.fleuve {
+  left: 0%; /* Ajustez selon votre préférence */
+}
+
+.box.statut {
+  left: 25%; /* Ajustez selon votre préférence */
+}
+
+.box.agrements {
+  left: 50%; /* Ajustez selon votre préférence */
+}
+
+.box.indicateurs {
+  left: 75%; /* Ajustez selon votre préférence */
+}
+
+/* Ajouter de la marge à droite de chaque boîte, sauf pour la dernière boîte */
+.box:not(:last-child) {
+  margin-right: 0%; /* Ajustez selon l'espace souhaité entre les boîtes */
+}
+
+
+/* .indicateursCanvas  {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+font-size: 15px;
+} */
+
+
+/* STYLES GRAPHIQUES */
+/* .graph-container {
+  width: 100%;
+}
+.piestatut {
+  width: 100% ;
+}
+
+#myPieChart{
+  width: 900px;
+  z-index: 1000;
+}
+
+/* Dans votre fichier CSS */
+/* #pie-chart-container {
+  width: 500px; 
+  height: 300px;
+  margin-top: 20px; 
+}
+
+#pie-chart {
+  width: 100%;
+  height:100%;
+}
+
+canvas#myPieChart.piestatut{
+  width: 250px;
+  height: 200px;
+  aspect-ratio: auto;
+}
+
+.piestatut{
+  width: 290px;
+  height: 200px;
+  aspect-ratio: auto;
+} */ */
+
+.graph-container {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+.graph-container.show {
+  height: 200px; /* Taille du graphique */
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+/* PAGE DE PRÉSENTATION */
+.paragraphe_presentation{
+  align-items: left;
+  margin-left: 5%; /* Utilisation d'une marge relative */
+  position: relative; /* Changement de position en relative */
+  top: 10vh; /* Utilisation d'une valeur relative à la hauteur de la vue */
+  text-align: justify;
+  width: 50%; /* Utilisation d'une largeur relative */
+}
+
+.logo_glourb {
+  position: absolute;
+  top: 30%; /* Ajustez la valeur en pourcentage en fonction de la position verticale souhaitée */
+  right: 10%; /* Ajustez la valeur en pourcentage pour positionner le logo à droite de la page */
+}
+
+.logo_glourb img {
+  max-height: 30vh; /* Utilisation d'une unité relative à la taille de la vue */
+  width: auto;
+}
+
+.flyer{
+  padding-top: 100px; /* Pour compenser la hauteur de la bannière */
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Vos autres styles pour le contenu */
+}
+
+.flyer img {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flyer1 {
+  width: 90%;
+  /* Autres styles pour les images */
+}
+
+
+
+/* page sources */
+.sources{
+  align-items: left;
+  margin-left: 40px;
+  position: absolute;
+  top : 180px;
+  text-align: justify;
+  width: 800px;
+  font-size: 17px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.sourcestexte {
+  align-items: left;
+  margin-left: 40px;
+  /* position: absolute; */
+  /* top : 180px; */
+  text-align: justify;
+  width: 800px;
+}
+.sourcestexte p{
+  align-items: left;
+  margin-left: 40px;
+  /* position: absolute; */
+  /* top : 180px; */
+  text-align: justify;
+  width: 800px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+h3{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.plantnet {
+  position: absolute;
+  top: 150px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 800px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.plantnet img {
+  max-height: 60px;
+  width: auto;
+}
+
+.osm {
+  position: absolute;
+  top: 450px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 760px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.osm img {
+  max-height: 150px;
+  width: auto;
+}
+
+.naturalearth {
+  position: absolute;
+  top: 800px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 860px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.naturalearth img {
+  max-height: 120px;
+  width: auto;
+}
+
+.gaia {
+  position: absolute;
+  top: 1150px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 840px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.gaia img {
+  max-height: 100px;
+  width: auto;
+}
+
+.wikidata {
+  position: absolute;
+  top: 1500px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 730px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.wikidata img {
+  max-height: 120px;
+  width: auto;
+}
+
+.ofb {
+  position: absolute;
+  top: 1800px; /* Ajustez la valeur en fonction de la position verticale souhaitée */
+  right: calc(50% - 750px); /* Positionner le logo à 40px de la moitié droite de la page */
+}
+.ofb img {
+  max-height: 100px;
+  width: auto;
+}
+
+
+/* RAJOUTER PAGE APROPOS MARCEAU */
+
+.textnous {
+  align-items: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: justify;
+  width: 95%;
+}
+
+.Lyon_2, .geonum {
+  width: 30%; /* Ajustez la largeur en fonction du nombre d'images et de la largeur de la page */
+  margin-left: 3%; /* Ajoutez une marge entre les images */
+  float: left; /* Alignez les images horizontalement */
+}
+
+.evs {
+  width: 30%; /* Ajustez la largeur en fonction du nombre d'images et de la largeur de la page */
+  margin-left: 2%; /* Ajoutez une marge entre les images */
+  margin-right: -7%; /* Ajoutez une marge à droite */
+  float: right; /* Alignez l'image horizontalement vers la droite */
+}
+
+.Lyon_2 img, .geonum img, .evs img {
+  max-height: 15vh;
+  width: auto;
+  display: block;
+  margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
+}
+
+
+
+
+.graphmondeparc img{
+  height: 200px;
+  width: 310px;
+}
+
+.box.indicateurs p{
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+
+/* STYLE MESSAGE AVERTISSEMENT */
+
+/* Style de la modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(199, 214, 208, 0.5);  
+  text-align: justify;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4); /* ombre légère */
+
+}
+
+/* Contenu de la modal */
+.messageinfo {
+  background-color: #F1F0F0;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 50%;
+}
+
+/* Bouton de fermeture */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 1px;
+  margin-right: 1px;
+}
+
+.messageinfo p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+}
+
+
