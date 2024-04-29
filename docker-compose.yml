@@ -11,12 +11,14 @@ services:
       - db-data:/var/lib/postgresql/data
 
   api:
-    build: .
+    image: ghcr.io/mastergeonum/biodivtrack:latest
     restart: always
     environment:
       - PGSERVICEFILE=/app/pg_service.conf
     ports:
       - "5000:5000"
+    volumes:
+      - ./pg_service.conf:/app/pg_service.conf:ro
   
 volumes:
   db-data:

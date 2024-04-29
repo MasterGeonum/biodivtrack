@@ -4,9 +4,10 @@ LABEL org.opencontainers.image.source="https://github.com/MasterGeonum/biodivtra
 WORKDIR /app
 
 COPY requirements.txt /app
-RUN pip3 install -r requirements.txt
+COPY apiplante.py /app
+COPY static /app
 
-COPY . /app
+RUN pip3 install -r requirements.txt
 
 ENTRYPOINT ["python3"]
 CMD ["apiplante.py"]
